@@ -2,7 +2,7 @@
 
 This project is an application example for a typical [AngularJS](http://angularjs.org/) web app.
 
-The application is a code example was built in Angular JS / D3 / HTML5 / CSS
+The application is a code example built in Angular JS / D3 / HTML5 / CSS
 
 ## Getting Started
 
