@@ -1,7 +1,7 @@
 <section>
     <div class="city-select-container">
-        <select content="hello" class="fa-border" ng-disabled="addCitiesDisabled" ng-model="citySelect" ng-options="city as city.name for city in cities"></select>
-        <button class="" ng-disabled="addCitiesDisabled" ng-show="citySelect" ng-click="addViewLocation(citySelect.name)">Add {{citySelect.name}}, {{citySelect.countrycode}} ...</button>
+        <select class="fa-border" ng-disabled="addCitiesDisabled" ng-model="citySelect" ng-options="city as city.name for city in cities"></select>
+        <button class="standardFormBtn" ng-disabled="addCitiesDisabled" ng-show="citySelect" ng-click="addViewLocation(citySelect.name)">Add {{citySelect.name}}, {{citySelect.countrycode}} <i class="fa fa-plus"></i></button>
         <span class="loading-msg" ng-show="addCitiesDisabled"><i class="fa fa-circle-o-notch fa-spin"></i> {{addCitiesDisabledMsg}}</span>
     </div>
 </section>
