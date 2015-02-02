@@ -5,8 +5,10 @@
         <span class="loading-msg" ng-show="addCitiesDisabled"><i class="fa fa-circle-o-notch fa-spin"></i> {{addCitiesDisabledMsg}}</span>
     </div>
 </section>
+
 <section class="clearfix">
     <div class="panel" ng-repeat="location in selectedLocations">
+
         <section>
             <i class="fa fa-lg fa-sun-o med-trans"></i>
             <h4 class="inline">{{location.name}}</h4>
@@ -14,7 +16,7 @@
                 <button class="removeButton align-right" ng-click="removeViewLocation(location.id)">X</button>
             </div>
         </section>
-        <!--<div class="divider"></div>-->
+
         <div class="large-panel-type">{{location.main.temp | kelvinToFahrenheit}}°F</div>
         <div class="med-panel-type">{{location.weather[0].main}} / {{location.weather[0].description}}</div>
         <div class="">{{location.wind.speed}}mph ({{location.wind.deg}}deg)</div>
@@ -26,7 +28,6 @@
             <input type="checkbox" ng-model="location.showHistory">
             <label><i></i></label>
         </div>
-
     </div>
 </section>
 
