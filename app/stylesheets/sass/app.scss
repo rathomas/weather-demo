@@ -323,7 +323,7 @@ section {
 }
 
 .standardFormBtn {
-  padding: 3px 6px 1px 6px;
+  padding: 2px 6px 0px 6px;
   border-style: solid;
   border-radius: 5px;
   border-width: 1px;
@@ -335,6 +335,22 @@ section {
   filter: blur(1px);
 
 }
+
+//- form styles ----------------------------------------------------------
+//---------------------------------------------------------------------
+
+select {
+  height: 16px;
+  padding: 8px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+select:focus,
+select.focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
 
 //- menu styles ----------------------------------------------------------
 //---------------------------------------------------------------------
