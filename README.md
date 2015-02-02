@@ -1,8 +1,8 @@
 # weather demo app
 
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
+This project is an application example for a typical [AngularJS](http://angularjs.org/) web app.
 
-The application is a code example for Angular JS / D3 / HTML5 / CSS
+The application is a code example was built in Angular JS / D3 / HTML5 / CSS
 
 ## Getting Started
 
