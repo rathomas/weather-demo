@@ -160,6 +160,8 @@ angular.module('current', ['ngRoute'])
             //static mock data
             //    var dataset = [1, 31, 42, 35, 23, 55, 32, 44, 36];
 
+            var largestDataSetLen = 0;
+
             for (index = 0, len = $scope.compareLocations.length; index < len; ++index) {
 
                 //get location object
@@ -176,9 +178,13 @@ angular.module('current', ['ngRoute'])
                     })
                 );
 
+                if(datasets[index].length > largestDataSetLen){
+                    largestDataSetLen = datasets[index].length;
+                }
+
             }
 
-            var margin = {top:10,right:10,bottom:20,left:40}
+            var margin = {top:25,right:5,bottom:5,left:35}
 
             var totalWidth = 835;
             var totalHeight = 300;
@@ -201,7 +207,9 @@ angular.module('current', ['ngRoute'])
                     .domain(dataset)
                     .rangeBands([0, w], 0.1, 0)
 
+                //allData is used for global chart metrics
                 var allData = _.flatten(datasets);
+
                 var yScale = d3.scale.linear()
                     .domain([d3.min(allData),d3.max(allData)])
                     .range([h,0]);
@@ -220,7 +228,7 @@ angular.module('current', ['ngRoute'])
 
                 var xAxis = d3.svg.axis()
                     .scale(xScale)
-                    .orient('bottom')
+                    .orient('top')
                     .ticks(8)
                     .innerTickSize(1)
                     .outerTickSize(2)
@@ -230,12 +238,12 @@ angular.module('current', ['ngRoute'])
                     .attr('class', 'y axis')
                     .call(yAxis);
 
-                if(index === len-1){
+                //if(index === 0){
                     svg.append('g')
                         .attr('class', 'x axis')
-                        .attr('transform', 'translate(0,' + (totalHeight) + ')')
+                        //.attr('transform', 'translate(' + margin.left + ', ' + h + ')')
                         .call(xAxis);
-                }
+                //}
 
                 svg.selectAll('rect')
                     .data(dataset)
