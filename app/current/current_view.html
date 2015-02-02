@@ -1,0 +1,38 @@
+<section>
+    <div class="city-select-container">
+        <select content="hello" class="fa-border" ng-disabled="addCitiesDisabled" ng-model="citySelect" ng-options="city as city.name for city in cities"></select>
+        <button class="" ng-disabled="addCitiesDisabled" ng-show="citySelect" ng-click="addViewLocation(citySelect.name)">Add {{citySelect.name}}, {{citySelect.countrycode}} ...</button>
+        <span class="loading-msg" ng-show="addCitiesDisabled"><i class="fa fa-circle-o-notch fa-spin"></i> {{addCitiesDisabledMsg}}</span>
+    </div>
+</section>
+<section class="clearfix">
+    <div class="panel" ng-repeat="location in selectedLocations">
+        <section>
+            <i class="fa fa-lg fa-sun-o med-trans"></i>
+            <h4 class="inline">{{location.name}}</h4>
+            <div class="inline">
+                <button class="removeButton align-right" ng-click="removeViewLocation(location.id)">X</button>
+            </div>
+        </section>
+        <!--<div class="divider"></div>-->
+        <div class="large-panel-type">{{location.main.temp | kelvinToFahrenheit}}°F</div>
+        <div class="med-panel-type">{{location.weather[0].main}} / {{location.weather[0].description}}</div>
+        <div class="">{{location.wind.speed}}mph ({{location.wind.deg}}deg)</div>
+        <div class="">Humidity: {{location.main.humidity}}%</div>
+        <div class="">Sunrise: {{location.sys.sunrise | date:'h:mm:ss a Z'}}</div>
+        <div class="">Sunset: {{location.sys.sunset | date:'h:mm:ss a Z'}}</div>
+
+        <div class="switch" ng-click="compareLocation(location.id)">
+            <input type="checkbox" ng-model="location.showHistory">
+            <label><i></i></label>
+        </div>
+
+    </div>
+</section>
+
+<section class="clearfix">
+    <div class="map-panel" ng-show="compareLocations.length > 0">
+        <i class="fa fa-lg fa-bar-chart"></i> Chart
+        <div id="chartArea"></div>
+    </div>
+</section>
